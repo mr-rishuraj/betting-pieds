@@ -31,6 +31,12 @@ const handler = NextAuth({
           return false;
         }
 
+        const ADMIN_EMAIL = '07rishuraj@gmail.com';
+        if (email !== ADMIN_EMAIL && !email.endsWith('@pilani.bits-pilani.ac.in')) {
+          console.error('Unauthorized email domain:', email);
+          return false;
+        }
+
         const { data: existingUser, error: selectError } = await supabase
           .from('users')
           .select('id')
@@ -51,7 +57,7 @@ const handler = NextAuth({
           .insert({
             name: user.name,
             email: email,
-            coins: 10000,
+            coins: 1000000,
           });
 
         if (insertError) {
