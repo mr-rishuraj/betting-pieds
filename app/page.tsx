@@ -108,7 +108,7 @@ export default function Home() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">🎲 Club Betting Platform</h1>
-          <p className="text-slate-300 mb-4">Vote on who will be removed during probation</p>
+          <p className="text-xl font-semibold text-yellow-400 tracking-wide uppercase mb-4">Vote on who will be removed during probation</p>
 
           <div className="bg-slate-800 rounded-lg shadow-md p-4 inline-block border border-slate-700">
             <p className="text-slate-200 mb-2">

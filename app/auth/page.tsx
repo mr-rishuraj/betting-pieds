@@ -37,7 +37,7 @@ export default function AuthPage() {
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-white mb-2">🎲</h1>
             <h2 className="text-3xl font-bold text-white mb-2">Club Betting</h2>
-            <p className="text-slate-300">Vote on who will be removed during probation</p>
+            <p className="text-xl font-semibold text-yellow-400 tracking-wide uppercase">Vote on who will be removed during probation</p>
           </div>
 
           {/* Features */}
