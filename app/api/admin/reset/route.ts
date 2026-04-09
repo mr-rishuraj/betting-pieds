@@ -18,19 +18,19 @@ export async function POST(request: NextRequest) {
     const supabase = getSupabase();
 
     // Delete all bets
-    const { error: betsError } = await supabase.from('bets').delete().neq('id', 0);
+    const { error: betsError } = await supabase.from('bets').delete().not('id', 'is', null);
     if (betsError) throw new Error(`Failed to clear bets: ${betsError.message}`);
 
     // Delete all results
-    const { error: resultsError } = await supabase.from('results').delete().neq('id', 0);
+    const { error: resultsError } = await supabase.from('results').delete().not('id', 'is', null);
     if (resultsError) throw new Error(`Failed to clear results: ${resultsError.message}`);
 
     // Reset all users' coins to 1000000
-    const { error: coinsError } = await supabase.from('users').update({ coins: 1000000 }).neq('id', 0);
+    const { error: coinsError } = await supabase.from('users').update({ coins: 1000000 }).not('id', 'is', null);
     if (coinsError) throw new Error(`Failed to reset coins: ${coinsError.message}`);
 
     // Reactivate all candidates
-    const { error: candidatesError } = await supabase.from('candidates').update({ is_active: true }).neq('id', 0);
+    const { error: candidatesError } = await supabase.from('candidates').update({ is_active: true }).not('id', 'is', null);
     if (candidatesError) throw new Error(`Failed to reactivate candidates: ${candidatesError.message}`);
 
     return NextResponse.json({ success: true, message: 'Database reset successfully' });
